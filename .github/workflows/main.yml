@@ -24,25 +24,18 @@ jobs:
       with:
         flutter-version: '3.19.0'
 
-    - name: In Unterordner wechseln und WebView laden
+    - name: WebView-Modul laden
       run: |
-        cd * 2>/dev/null || true
-        if [ -f pubspec.yaml ]; then
-          flutter pub get
-        fi
+        cd m1_app
+        flutter pub get
 
-    - name: APK im Unterordner bauen
+    - name: APK im M1-Ordner bauen
       run: |
-        cd * 2>/dev/null || true
-        if [ -f pubspec.yaml ]; then
-          flutter build apk --release
-        else
-          echo "Fehler: pubspec.yaml wurde nicht gefunden!"
-          exit 1
-        fi
+        cd m1_app
+        flutter build apk --release
 
     - name: APK als Download bereitstellen
       uses: actions/upload-artifact@v4
       with:
         name: Radio-M1-App
-        path: "**/build/app/outputs/flutter-apk/app-release.apk"
+        path: m1_app/build/app/outputs/flutter-apk/app-release.apk
