@@ -23,19 +23,10 @@ class PlayerScreen extends StatefulWidget {
   const PlayerScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return const _PlayerScreenStateful();
-  }
+  State<PlayerScreen> createState() => _PlayerScreenState();
 }
 
-class _PlayerScreenStateful extends StatefulWidget {
-  const _PlayerScreenStateful();
-
-  @override
-  State<_PlayerScreenStateful> createState() => _PlayerScreenState();
-}
-
-class _PlayerScreenState extends State<_PlayerScreenStateful> {
+class _PlayerScreenState extends State<PlayerScreen> {
   late final WebViewController _controller;
 
   @override
