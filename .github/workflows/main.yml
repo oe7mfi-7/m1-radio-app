@@ -24,18 +24,14 @@ jobs:
       with:
         flutter-version: '3.19.0'
 
-    - name: WebView-Modul laden
-      run: |
-        cd m1_app
-        flutter pub get
+    - name: Module laden
+      run: flutter pub get
 
-    - name: APK im M1-Ordner bauen
-      run: |
-        cd m1_app
-        flutter build apk --release
+    - name: APK bauen
+      run: flutter build apk --release
 
     - name: APK als Download bereitstellen
       uses: actions/upload-artifact@v4
       with:
         name: Radio-M1-App
-        path: m1_app/build/app/outputs/flutter-apk/app-release.apk
+        path: build/app/outputs/flutter-apk/app-release.apk
